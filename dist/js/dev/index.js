@@ -4870,6 +4870,17 @@ function EffectFade({
     })
   });
 }
+function fixPolygonPoints() {
+  const polygons = document.querySelectorAll(".polygon-area");
+  polygons.forEach((poly) => {
+    let rawData = poly.getAttribute("data-points");
+    if (rawData && rawData !== "undefined") {
+      const clean = rawData.replace(/[\[\]" ]/g, "");
+      poly.setAttribute("points", clean);
+    }
+  });
+}
+document.addEventListener("DOMContentLoaded", fixPolygonPoints);
 function initSliders() {
   if (document.querySelector("._swiper")) {
     new Swiper("._swiper", {
@@ -4942,76 +4953,33 @@ function initSliders() {
     });
   }
   if (document.querySelector(".hero__slider")) {
-    new Swiper(".hero__slider", {
-      // <- Вказуємо склас потрібного слайдера
-      // Підключаємо модулі слайдера
-      // для конкретного випадку
-      modules: [Navigation],
+    const heroSlider = new Swiper(".hero__slider", {
+      modules: [Navigation, Parallax],
       observer: true,
       observeParents: true,
-      slidesPerView: 1,
-      spaceBetween: 0,
-      //autoHeight: true,
+      speed: 1200,
       parallax: true,
-      parallaxMult: 0.5,
-      speed: 800,
-      //touchRatio: 0,
-      //simulateTouch: false,
-      //loop: true,
-      //preloadImages: false,
-      //lazy: true,
-      /*
-      // Ефекти
-      effect: 'fade',
-      autoplay: {
-      	delay: 3000,
-      	disableOnInteraction: false,
-      },
-      */
-      // Пагінація
-      /*
-      pagination: {
-      	el: '.swiper-pagination',
-      	clickable: true,
-      },
-      */
-      // Скроллбар
-      /*
-      scrollbar: {
-      	el: '.swiper-scrollbar',
-      	draggable: true,
-      },
-      */
-      // Кнопки "вліво/вправо"
       navigation: {
-        prevEl: ".hero__arrow--prev",
-        nextEl: ".hero__arrow--next"
+        nextEl: ".hero__arrow--next",
+        prevEl: ".hero__arrow--prev"
       },
-      /*
-      // Брейкпоінти
-      breakpoints: {
-      	640: {
-      		slidesPerView: 1,
-      		spaceBetween: 0,
-      		autoHeight: true,
-      	},
-      	768: {
-      		slidesPerView: 2,
-      		spaceBetween: 20,
-      	},
-      	992: {
-      		slidesPerView: 3,
-      		spaceBetween: 20,
-      	},
-      	1268: {
-      		slidesPerView: 4,
-      		spaceBetween: 30,
-      	},
-      },
-      */
-      // Події
-      on: {}
+      on: {
+        init: function() {
+          fixPolygonPoints();
+        },
+        slideChangeTransitionEnd: function() {
+          fixPolygonPoints();
+        },
+        // Додаємо оновлення точок при зміні розміру екрана
+        resize: function() {
+          fixPolygonPoints();
+        }
+      }
     });
+    if (typeof heroSlider !== "undefined") {
+      heroSlider.on("slideChangeTransitionEnd", fixPolygonPoints);
+      heroSlider.on("resize", fixPolygonPoints);
+    }
   }
   if (document.querySelector(".mySwiper") && document.querySelector(".mySwiper2")) {
     const mySwiper = new Swiper(".mySwiper", {
@@ -5300,7 +5268,18 @@ function initSliders() {
     });
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  initSliders();
+  fixPolygonPoints();
+});
+window.addEventListener("resize", fixPolygonPoints);
 document.querySelector("[data-fls-slider]") ? window.addEventListener("load", initSliders) : null;
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("polygon-area")) {
+    const id = e.target.getAttribute("data-id");
+    alert("Ви вибрали секцію: " + id);
+  }
+});
 document.addEventListener("DOMContentLoaded", () => {
   const copyButton = document.querySelector(".header__copy-btn");
   const phoneNumberLink = document.querySelector(".header__phone");
