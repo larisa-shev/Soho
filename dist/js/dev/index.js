@@ -4987,7 +4987,7 @@ function initSliders() {
       // Підключаємо модулі слайдера
       // для конкретного випадку
       modules: [Navigation, Thumb],
-      direction: "vertical",
+      // direction: 'horizontal',
       mousewheel: true,
       spaceBetween: 16,
       slidesPerView: 5,
@@ -5048,6 +5048,11 @@ function initSliders() {
       	},
       },
       */
+      breakpoints: {
+        992: {
+          direction: "vertical"
+        }
+      },
       // Події
       on: {}
     });
@@ -5130,7 +5135,7 @@ function initSliders() {
       // Підключаємо модулі слайдера
       // для конкретного випадку
       modules: [Navigation, Thumb],
-      direction: "vertical",
+      // direction: 'horizontal',
       mousewheel: true,
       spaceBetween: 16,
       slidesPerView: 5,
@@ -5191,6 +5196,11 @@ function initSliders() {
       	},
       },
       */
+      breakpoints: {
+        992: {
+          direction: "vertical"
+        }
+      },
       // Події
       on: {}
     });
