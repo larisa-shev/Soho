@@ -176,7 +176,7 @@ html {
 .house__wrapper {
   padding-top: 6.25rem;
   padding-bottom: 8.25rem;
-  background: url(../assets/img/section_2/house-bg.png) center bottom/cover no-repeat;
+  background: url(/Soho/assets/img/section_2/house-bg.png) center bottom/cover no-repeat;
   height: 100%;
   overflow: hidden;
 }
@@ -252,7 +252,7 @@ html {
   position: relative;
 }
 .contacts__wrapper {
-  background: url(../assets/img/section-3/contacts-bg.png) right top 1.0625rem/contain no-repeat;
+  background: url(/Soho/assets/img/section-3/contacts-bg.png) right top 1.0625rem/contain no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
