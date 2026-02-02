@@ -353,7 +353,7 @@ html {
 .contacts {
   background: linear-gradient(0deg, #242924 0%, #555D59 100%);
   position: relative;
-  scroll-margin-top: 62px;
+  scroll-margin-top: 32px;
 }
 .contacts__wrapper {
   background: url(../assets/img/section-3/contacts-bg.png) right top 1.0625rem/contain no-repeat;
