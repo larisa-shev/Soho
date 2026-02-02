@@ -555,7 +555,8 @@ html {
   top: 0;
   left: 0;
   padding-top: 15.625rem;
-  padding-bottom: 15.625rem;
+  padding-bottom: 9rem;
+  min-width: 50rem;
   width: 100%;
   height: 100%;
   display: flex;
@@ -571,6 +572,7 @@ html {
   flex-direction: column;
   justify-content: space-between;
   height: calc(100vh - 31.25rem);
+  width: 50%;
 }
 @media (max-width: 767.98px) {
   .hero__text {
@@ -580,7 +582,7 @@ html {
 .hero__title {
   font-family: "Jura", sans-serif;
   font-weight: 700;
-  font-size: 3.75rem;
+  font-size: 2rem;
   letter-spacing: -0.02em;
   text-shadow: 2px 2px 4px #000;
   width: 50%;
@@ -593,7 +595,7 @@ html {
 @media (max-width: 767.98px) {
   .hero__title {
     width: 100%;
-    font-size: 3.75rem;
+    font-size: 2rem;
     text-shadow: 2px 2px 4px #000;
   }
 }
@@ -606,12 +608,12 @@ html {
 }
 .hero__list li {
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  border-radius: 999999rem;
+  padding: 0.8rem 2rem 0.8rem 0.8rem;
   letter-spacing: 0.01em;
   text-transform: uppercase;
   font-weight: 400;
-  padding: 1.5rem 1rem;
-  border-radius: 3.75rem;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
   display: flex;
