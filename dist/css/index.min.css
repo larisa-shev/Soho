@@ -281,8 +281,8 @@ html {
 @media (min-width: 991.98px) {
   .floor-switcher {
     width: 6rem;
-    height: 34rem;
-    margin-top: 10.375rem;
+    height: 41.625rem;
+    margin-top: 6.25rem;
   }
 }
 .floor-switcher .swiper-wrapper {
@@ -290,7 +290,7 @@ html {
 }
 @media (min-width: 991.98px) {
   .floor-switcher .swiper-wrapper {
-    height: 34rem;
+    height: 41.625rem;
   }
 }
 .floor-switcher .swiper-slide {
@@ -306,11 +306,22 @@ html {
   transition: all 0.3s ease;
   flex-shrink: 1 !important;
 }
+@media (max-width: 991.98px) {
+  .floor-switcher .swiper-slide {
+    padding: 0.625rem;
+  }
+}
 .floor-switcher .swiper-slide svg {
   fill: #AEC7A7;
   transition: all 0.3s ease;
   width: 4rem;
   height: 4rem;
+}
+@media (max-width: 991.98px) {
+  .floor-switcher .swiper-slide svg {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 .floor-switcher .swiper-slide:hover {
   background-color: rgba(174, 199, 167, 0.3);
@@ -323,6 +334,12 @@ html {
 }
 .floor-switcher .swiper-slide-thumb-active:hover {
   background-color: #8abb6a;
+}
+.floor-switcher .swiper-slide.parking-icon svg {
+  fill: none;
+}
+.floor-switcher .swiper-slide.parking-icon-thumb-active svg {
+  fill: none;
 }
 
 .floors {
